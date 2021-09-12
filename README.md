@@ -1,6 +1,12 @@
-# moneyManager
 <h1>About Money Manager</h1>
 <h2 id="intro">Introduction</h2>
+<p>Money Manager is a web application that helps the users visually see their finances. As they enter their weekly paycheck the application will ask for their bills and they can add or remove bills as they wish and at the end a result will be provided to them so that they can have a better idea of how they spend their money. Money Manager will allow the user to:</p>
+<ul><li>Login</li>
+<li>Add their weekly paycheck</li>
+<li>Add their bills</li>
+<li>Separate their finances into categories, such as shopping or electronics</li>
+<li>The user can decide how they will save money</li>
+<li>The app will provide a chart to make the numbers easier to look at</li></ul>
 <h2 id="storyboard">Storyboard</h2>
 <h2 id="requirements">Functional Requirements</h2>
 <h3>Requirement 100.0: Store, View and Edit Income</h3>

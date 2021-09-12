@@ -13,93 +13,90 @@
 <h4>Scenario</h4>
 <p>As a User, I want to be able to enter the various incomes that are available to me into the application to store it, so that I can view it or edit it later. This data should be available to other parts of the application for data comparisons.</p>
 <p><strong>Examples:</strong></p>
-<div style="margin-left:20px;">
-   <p><strong>1.1</strong></p>
-   <p><strong>Given</strong> I have no stored income data in the application</p>
-   <p><strong>When</strong> I open the Money Manager Application</p>
-   <p><strong>Then</strong> I should be notified that I have no existing income data and I should be prompted to enter new income data</p>
-   <p><strong>1.2</strong></p>
-   <p><strong>Given</strong> I enter a new income item</p>
-   <p><strong>Then</strong> I should be prompted to select the relevant additional information (e.g., amount, frequency, etc.)</p>
-   <p><strong>1.3</strong></p>
-   <p><strong>Given</strong> I have previously stored income data in the application</p>
-   <p><strong>When</strong> I choose the View Income option</p>
-   <p><strong>Then</strong> my stored income data should be displayed in the application</p>
-   <p><strong>1.4</strong></p>
-   <p><strong>Given</strong> I have previously stored income data in the application</p>
-   <p><strong>Given</strong> I am viewing previously stored income data</p>
-   <p><strong>When</strong> I choose the Edit option for any given income entry</p>
-   <p><strong>Then</strong> each previously entered field for that income should be editable</p>
-   <p><strong>1.5</strong></p>
-   <p><strong>Given</strong> I have previously stored income data in the application</p>
-   <p><strong>Given</strong> I am viewing previously stored income data</p>
-   <p><strong>When</strong> I choose the Delete option for any given income entry</p>
-   <p><strong>Then</strong> the income item should be marked as deleted and removed from the list of income items</p>
-   <p><strong>1.6</strong></p>
-   <p><strong>Given</strong> a stored income item is already existing in the Money Management Application</p>
-   <p><strong>When</strong> I attempt to add the item again</p>
-   <p><strong>Then</strong> I should receive a prompt notifying me that the item is already on the list with the option to cancel my entry, update the previously entry or add a duplicate item.</p>
+<div>
+   <p><strong>1.1</strong><br 
+   /><strong>Given</strong> I have no stored income data in the application<br 
+   /><strong>When</strong> I open the Money Manager Application<br 
+   /><strong>Then</strong> I should be notified that I have no existing income data and I should be prompted to enter new income data<br 
+   /><strong>1.2</strong><br 
+   /><strong>Given</strong> I enter a new income item<br 
+   /><strong>Then</strong> I should be prompted to select the relevant additional information (e.g., amount, frequency, etc.)<br 
+   /><strong>1.3</strong><br 
+   /><strong>Given</strong> I have previously stored income data in the application<br 
+   /><strong>When</strong> I choose the View Income option<br 
+   /><strong>Then</strong> my stored income data should be displayed in the application<br 
+   /><strong>1.4</strong><br 
+   /><strong>Given</strong> I have previously stored income data in the application<br 
+   /><strong>Given</strong> I am viewing previously stored income data<br 
+   /><strong>When</strong> I choose the Edit option for any given income entry<br 
+   /><strong>Then</strong> each previously entered field for that income should be editable<br 
+   /><strong>1.5</strong><br 
+   /><strong>Given</strong> I have previously stored income data in the application<br 
+   /><strong>Given</strong> I am viewing previously stored income data<br 
+   /><strong>When</strong> I choose the Delete option for any given income entry<br 
+   /><strong>Then</strong> the income item should be marked as deleted and removed from the list of income items<br 
+   /><strong>1.6</strong><br
+   /><strong>Given</strong> a stored income item is already existing in the Money Management Application<br
+   /><strong>When</strong> I attempt to add the item again<br
+   /><strong>Then</strong> I should receive a prompt notifying me that the item is already on the list with the option to cancel my entry, update the previously entry or add a duplicate item.</p>
 </div>
 <h3>Requirement 101.0: Store, View and Edit Debts &amp; Bills</h3>
 <h4>Scenario</h4>
 <p>As a User, I want to be able to enter the various debts and bills that I need to pay into the application to store it, so that I can view it or edit it later. This data should be available to other parts of the application for data comparisons.</p>
-<div style="margin-left:20px;">
-   <p><strong>1.1</strong></p>
-   <p><strong>Given</strong> I have previously stored income data in the application</p>
-   <p><strong>Given</strong> I have no stored bills data in the application</p>
-   <p><strong>When</strong> I open the Money Management Application</p>
-   <p><strong>Then</strong> I should be notified that I have not existing bill data and I should be prompted to enter new bill data</p>
-   <p><strong>1.2</strong></p>
-   <p><strong>Given</strong> I enter a new bill item</p>
-   <p><strong>Then</strong> I should be prompted to select the relevant additional information (e.g., amount, frequency, etc.)</p>
-   <p><strong>1.3</strong></p>
-   <p><strong>Given</strong> I have previously stored bill data in the application</p>
-   <p><strong>When</strong> I choose the View Bill option</p>
-   <p><strong>Then</strong> my stored bill data should be displayed in the application</p>
-   <p><strong>1.4</strong></p>
-   <p><strong>Given</strong> I have previously stored bill data in the application</p>
-   <p><strong>Given</strong> I am viewing previously stored bill data</p>
-   <p><strong>When</strong> I choose the Edit option for any given bill entry</p>
-   <p><strong>Then</strong> each previously entered field for that bill should be editable</p>
-   <p><strong>1.5</strong></p>
-   <p><strong>Given</strong> I have previously stored bill data in the application</p>
-   <p><strong>Given</strong> I am viewing previously stored bill data</p>
-   <p><strong>When</strong> I choose the Delete option for any given bill entry</p>
-   <p><strong>Then</strong> the bill item should be marked as deleted and removed from the list of bills</p>
-   <p><strong>1.6</strong></p>
-   <p><strong>Given</strong> a stored bill item is already existing in the Money Management Application</p>
-   <p><strong>When</strong> I attempt to add the item again</p>
-   <p><strong>Then</strong> I should receive a prompt notifying me that the item is already on the list with the option to cancel my entry, update the previously entry or add a duplicate item.</p>
+<div>
+   <p><strong>1.1</strong><br 
+   /><strong>Given</strong> I have previously stored income data in the application<br 
+   /><strong>Given</strong> I have no stored bills data in the application<br 
+   /><strong>When</strong> I open the Money Management Application<br 
+   /><strong>Then</strong> I should be notified that I have not existing bill data and I should be prompted to enter new bill data<br 
+   /><strong>1.2</strong><br 
+   /><strong>Given</strong> I enter a new bill item<br 
+   /><strong>Then</strong> I should be prompted to select the relevant additional information (e.g., amount, frequency, etc.)<br 
+   /><strong>1.3</strong><br 
+   /><strong>Given</strong> I have previously stored bill data in the application<br 
+   /><strong>When</strong> I choose the View Bill option<br 
+   /><strong>Then</strong> my stored bill data should be displayed in the application<br 
+   /><strong>1.4</strong><br 
+   /><strong>Given</strong> I have previously stored bill data in the application<br 
+   /><strong>Given</strong> I am viewing previously stored bill data<br 
+   /><strong>When</strong> I choose the Edit option for any given bill entry<br 
+   /><strong>Then</strong> each previously entered field for that bill should be editable<br 
+   /><strong>1.5</strong><br 
+   /><strong>Given</strong> I have previously stored bill data in the application<br 
+   /><strong>Given</strong> I am viewing previously stored bill data<br 
+   /><strong>When</strong> I choose the Delete option for any given bill entry<br 
+   /><strong>Then</strong> the bill item should be marked as deleted and removed from the list of bills<br 
+   /><strong>1.6</strong><br 
+   /><strong>Given</strong> a stored bill item is already existing in the Money Management Application<br 
+   /><strong>When</strong> I attempt to add the item again<br 
+   /><strong>Then</strong> I should receive a prompt notifying me that the item is already on the list with the option to cancel my entry, update the previously entry or add a duplicate item.</p>
 </div>
 <h3>Requirement 102.0: View a Summary of Income and Bills with a Debt-to-Income Ratio Graph</h3>
 <h4>Scenario</h4>
 <p>As a User, I want to be able to see a summary of my total income vs my total bills with a graphical interface that gives a visual representation of the summary.</p>
 <h4>Dependencies</h4>
-<p>Income and Bill items have been entered previously in the Money Management Application</p>
-<div style="margin-left:20px;">
-   <p><strong>1.1</strong></p>
-   <p><strong>Given</strong> I open the Money Management Application</p>
-   <p><strong>Then</strong> I should see a summary of my previously entered income and bill items with a nice GUI highlighting the totals from each category</p>
-   <p><strong>1.2</strong></p>
-   <p><strong>Given</strong> I am viewing the Summary Menu</p>
-   <p><strong>When</strong> I select Income Details</p>
-   <p><strong>Then</strong> I should see a list of previously entered income items</p>
-   <p><strong>1.3</strong></p>
-   <p><strong>Given</strong> I am viewing the Summary Menu</p>
-   <p><strong>When</strong> I select Bill Details</p>
-   <p><strong>Then</strong> I should see a list of previously entered bill items</p>
-</div>
+<p>Income and Bill items have been entered previously in the Money Management Application<br 
+/><strong>1.1</strong><br 
+/><strong>Given</strong> I open the Money Management Application<br 
+/><strong>Then</strong> I should see a summary of my previously entered income and bill items with a nice GUI highlighting the totals from each category<br 
+/><strong>1.2</strong><br 
+/><strong>Given</strong> I am viewing the Summary Menu<br 
+/><strong>When</strong> I select Income Details<br 
+/><strong>Then</strong> I should see a list of previously entered income items<br 
+/><strong>1.3</strong><br 
+/><strong>Given</strong> I am viewing the Summary Menu<br 
+/><strong>When</strong> I select Bill Details<br 
+/><strong>Then</strong> I should see a list of previously entered bill items</p>
 <h3>Requirement 103.0: Generate Suggestions for Savings</h3>
 <h4>Scenario</h4>
 <p>As a User, I want to be able to use the Money Management Application to identify potential savings in my bills.</p>
 <h4>Dependencies</h4>
-<p>Recipes have previously been saved or favorited in the Money Management Application.</p>
-<div style="margin-left:20px;">
-   <p><strong>1.1</strong></p>
-   <p><strong>Given</strong> I am viewing the Summary Menu</p>
-   <p><strong>When</strong> I choose Find Savings</p>
-   <p><strong>Then</strong> I should see a list of non-essential bills displayed with their total monthly cost</p>
-</div>
+<p>Recipes have previously been saved or favorited in the Money Management Application.<br 
+/><strong>1.1</strong><br
+/><strong>Given</strong> I am viewing the Summary Menu<br
+/><strong>When</strong> I choose Find Savings<br
+/><strong>Then</strong> I should see a list of non-essential bills displayed with their total monthly cost</p>
+
 <h2 id="diagram">Class Diagram</h2>
 
 <h2 id="json">JSON Schema</h2>

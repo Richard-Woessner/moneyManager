@@ -109,4 +109,4 @@
 <h2 id="scrum">Scrum Board</h2>
 <h3><a href="https://trello.com/b/zgP0FG7V/moneymanager" target="_blank">Our Board in Trello</a></h3>
 <h2 id="teams">Link to Teams</h2>
-<h3><a href="" target="_blank"></a></h3>
+<h3><a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2I0NzliMzgtNTNiOS00MWU2LWJlZmUtMjAxYTM5MGM4MTZm%40thread.v2/0?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%224e12a843-0809-4a17-b8d9-7017f7b12776%22%7d" target="_blank">Teams Meeting</a></h3>

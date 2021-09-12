@@ -10,9 +10,9 @@
 <h2 id="storyboard">Storyboard</h2>
 <p><img src=".github/images/page1.PNG"/></p>
 <p><img src=".github/images/page2.PNG"/></p>
-<p><img src=".github/images/page3.PNG"/></p>
 <p><img src=".github/images/page4.PNG"/></p>
 <p><img src=".github/images/page5.PNG"/></p>
+<p><img src=".github/images/page6.PNG"/></p>
 <h2 id="requirements">Functional Requirements</h2>
 <h3>Requirement 100.0: Store, View and Edit Income</h3>
 <h4>Scenario</h4>

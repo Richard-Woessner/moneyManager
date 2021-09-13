@@ -18,7 +18,7 @@
 <h4>Scenario</h4>
 <p>As a User, I want to be able to enter the various incomes that are available to me into the application to store it, so that I can view it or edit it later. This data should be available to other parts of the application for data comparisons.</p>
 <p><strong>Examples:</strong></p>
-<div>
+
    <p><strong>1.1</strong><br 
    /><strong>Given</strong> I have no stored income data in the application<br 
    /><strong>When</strong> I open the Money Manager Application<br 
@@ -44,11 +44,11 @@
    /><strong>Given</strong> a stored income item is already existing in the Money Management Application<br
    /><strong>When</strong> I attempt to add the item again<br
    /><strong>Then</strong> I should receive a prompt notifying me that the item is already on the list with the option to cancel my entry, update the previously entry or add a duplicate item.</p>
-</div>
+
 <h3>Requirement 101.0: Store, View and Edit Debts &amp; Bills</h3>
 <h4>Scenario</h4>
 <p>As a User, I want to be able to enter the various debts and bills that I need to pay into the application to store it, so that I can view it or edit it later. This data should be available to other parts of the application for data comparisons.</p>
-<div>
+
    <p><strong>1.1</strong><br 
    /><strong>Given</strong> I have previously stored income data in the application<br 
    /><strong>Given</strong> I have no stored bills data in the application<br 
@@ -75,13 +75,13 @@
    /><strong>Given</strong> a stored bill item is already existing in the Money Management Application<br 
    /><strong>When</strong> I attempt to add the item again<br 
    /><strong>Then</strong> I should receive a prompt notifying me that the item is already on the list with the option to cancel my entry, update the previously entry or add a duplicate item.</p>
-</div>
+
 <h3>Requirement 102.0: View a Summary of Income and Bills with a Debt-to-Income Ratio Graph</h3>
 <h4>Scenario</h4>
 <p>As a User, I want to be able to see a summary of my total income vs my total bills with a graphical interface that gives a visual representation of the summary.</p>
 <h4>Dependencies</h4>
-<p>Income and Bill items have been entered previously in the Money Management Application<br 
-/><strong>1.1</strong><br 
+<p>Income and Bill items have been entered previously in the Money Management Application</p>
+<p>><strong>1.1</strong><br 
 /><strong>Given</strong> I open the Money Management Application<br 
 /><strong>Then</strong> I should see a summary of my previously entered income and bill items with a nice GUI highlighting the totals from each category<br 
 /><strong>1.2</strong><br 
@@ -96,8 +96,8 @@
 <h4>Scenario</h4>
 <p>As a User, I want to be able to use the Money Management Application to identify potential savings in my bills.</p>
 <h4>Dependencies</h4>
-<p>Recipes have previously been saved or favorited in the Money Management Application.<br 
-/><strong>1.1</strong><br
+<p>Recipes have previously been saved or favorited in the Money Management Application.</p>
+<p>><strong>1.1</strong><br
 /><strong>Given</strong> I am viewing the Summary Menu<br
 /><strong>When</strong> I choose Find Savings<br
 /><strong>Then</strong> I should see a list of non-essential bills displayed with their total monthly cost</p>

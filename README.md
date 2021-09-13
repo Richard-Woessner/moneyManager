@@ -97,7 +97,7 @@
 <p>As a User, I want to be able to use the Money Management Application to identify potential savings in my bills.</p>
 <h4>Dependencies</h4>
 <p>Recipes have previously been saved or favorited in the Money Management Application.</p>
-<p>><strong>1.1</strong><br
+<p><strong>1.1</strong><br
 /><strong>Given</strong> I am viewing the Summary Menu<br
 /><strong>When</strong> I choose Find Savings<br
 /><strong>Then</strong> I should see a list of non-essential bills displayed with their total monthly cost</p>

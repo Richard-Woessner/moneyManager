@@ -81,7 +81,7 @@
 <p>As a User, I want to be able to see a summary of my total income vs my total bills with a graphical interface that gives a visual representation of the summary.</p>
 <h4>Dependencies</h4>
 <p>Income and Bill items have been entered previously in the Money Management Application</p>
-<p>><strong>1.1</strong><br 
+<p><strong>1.1</strong><br 
 /><strong>Given</strong> I open the Money Management Application<br 
 /><strong>Then</strong> I should see a summary of my previously entered income and bill items with a nice GUI highlighting the totals from each category<br 
 /><strong>1.2</strong><br 
@@ -100,11 +100,92 @@
 <p><strong>1.1</strong><br
 /><strong>Given</strong> I am viewing the Summary Menu<br
 /><strong>When</strong> I choose Find Savings<br
-/><strong>Then</strong> I should see a list of non-essential bills displayed with their total monthly cost</p>
+/><strong>Then</strong> I should see a list of non-essential bills displayed with their total monthly cost </p>
 
 <h2 id="diagram">Class Diagram</h2>
-
+<p><img src=".github/images/ClassDiagram.png"/></p>
+<h3>Class Diagram Description</h3>
+<p>
+   <strong>EnterpriseApplication:</strong> This class needed by SpringBoot to start the application.<br
+   /><strong>MoneyManagerController:</strong> This is a User interface (UI) class.<br
+   /><br/>
+   <strong>DTO classes:</strong><br 
+   /><strong>User:</strong> The class will hold user name and any possible data required for autehntication. <br 
+   /><strong>Income:</strong> The class will hold any income information data such as source, ammount, and frequency available (yearly, monthly, biweekly,etc.).<br 
+   /><strong>Bill:</strong> The class will hold the bill information such as source, payment, day due, and the category of the bill. <br
+   /><strong>CategoryType:</strong> Enum class to hold possible categories to organize bill types such as housing, electricity, entertainment, etc.).<br
+   /><br/>
+   <strong>DAO classes:</strong><br 
+   /><strong>IUserDAO/UserDAO:</strong> Will process the user data between the apllication and the database.<br
+   /><strong>IIncomeDAO/IncomeDAO:</strong> Will process the income data between the apllication and the database.<br 
+   /><strong>IBillDAO/BillDAO:</strong> Will process the bill data between the apllication and the database.<br
+   /><br/>  
+   <strong>Service classes:</strong><br 
+   /><strong>ItemServices:</strong> Provides the required behaviors the classes below must implement for the business logic.<br 
+   /><strong>IncomeService:</strong> This class will process the income data for any required function.<br
+   /><strong>BillService:</strong> This class will process the bill data for any required function.<br
+   /><strong>IncomeServiceStub:</strong> Contains temporaty income data to test the application until the database/dto is implemented.<br
+   /><strong>BillServiceStub:</strong> Contains temporaty bill data to test the application until the database/dto is implemented. </p>
 <h2 id="json">JSON Schema</h2>
+This is the bill data to be exported to other apps.
+
+```
+{
+   "type" : "object",
+   "properties" : {
+      "bill" : {
+         "type" : "string"
+      },
+      "ammount" : {
+         "type" : "double"
+      },
+      "dayDue" : {
+         "type" : "integer"
+      },
+      "category" : {
+         "type" : "string"
+      }
+   }
+}
+```
+
+Income:
+
+```
+{
+   "type" : "object",
+   "properties" : {
+      "bill" : {
+         "type" : "string"
+      },
+      "ammount" : {
+         "type" : "number"
+      },
+      "dayDue" : {
+         "type" : "integer"
+      },
+      "category" : {
+         "type" : "string"
+      }
+   }
+}
+```
+
+User data:
+
+```
+{
+   "type" : "object",
+   "properties" : {
+      "LName" : {
+         "type" : "string"
+      },
+      "FName" : {
+         "type" : "string"
+      }
+   }
+}
+```
 <h2 id="roles">Scrum Roles</h2>
 <ul>
 <li>Alainna Nichols - Business Logic</li>

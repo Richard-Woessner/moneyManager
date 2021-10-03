@@ -20,4 +20,6 @@ public interface IExpenseService {
      * @return a collection of all expense entries.
      */
     List<Expense> showAll();
+
+    Expense searchByID(int id);
 }

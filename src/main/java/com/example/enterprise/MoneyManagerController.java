@@ -1,9 +1,11 @@
 package com.example.enterprise;
 
+import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -12,7 +14,9 @@ public class MoneyManagerController {
 
 
     @RequestMapping("/")
-    public String index(){
+    public String index(Model model){
+        Expense expense = new Expense();
+        Income income = new Income();
         return "index";
     }
 

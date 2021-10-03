@@ -1,6 +1,8 @@
 package com.example.enterprise;
 
+import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
+import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
 import com.example.enterprise.service.IncomeService;
 import com.example.enterprise.service.MoneyMakerServiceStub;
@@ -18,6 +20,9 @@ class MoneyManagerApplicationTests {
 
     @Autowired
     IIncomeService incomeService;
+
+    @Autowired
+    IExpenseService expenseService;
 
     @Test
     void contextLoads() {
@@ -56,6 +61,33 @@ class MoneyManagerApplicationTests {
         }
     }
 //    Add expense
+    @Test
+    void addAndSaveANewExpense(){
+        String expenseName = "Phone Bill";
+        int id = 0;
+        double cost = 120.00;
+        Date dueDate = new Date("November 01, 2021");
+        String category = "Necessity";
+        String notes = "Verizon";
+
+        Expense newExpense = new Expense();
+        newExpense.setName(expenseName);
+        newExpense.setExpenseID(id);
+        newExpense.setAmount(cost);
+        newExpense.setCategory(category);
+        newExpense.setNote(notes);
+
+        expenseService.save(newExpense);
+
+        List<Expense> expenseEntries = expenseService.showAll();
+        boolean checkNewExpense = false;
+        for(Expense e : expenseEntries){
+            if(e.getName().equals(expenseName) && e.getAmount() == cost){
+                checkNewExpense = true;
+                break;
+            }
+        }
+    }
 //    Delete income
 //    Delete expense
 //    Get Income
@@ -64,6 +96,10 @@ class MoneyManagerApplicationTests {
         incomeService.listAll();
     }
 //    Get Expense
+    @Test
+    void checkReturnExpensesList(){
+        expenseService.showAll();
+    }
 //    Update Income
 //    Update Expense
 

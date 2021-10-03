@@ -4,10 +4,9 @@ import lombok.Data;
 
 import java.util.Date;
 
-public @Data
-class Expense {
+public @Data class Expense {
     private String name;
-    private int incomeID;
+    private int expenseID;
     private double amount;
     private Date dueDate;
     private String category;

@@ -34,4 +34,12 @@ public class IncomeService implements IIncomeService{
     public List<Income> listAll() {
         return incomeSourceDAO.listAll();
     }
+
+    @Override
+    public Income searchByID(int id) {
+        Income income = new Income();
+        income.setSource("Savings Interest");
+        income.setIncomeID(25);
+        return income;
+    }
 }

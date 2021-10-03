@@ -20,4 +20,11 @@ public interface IIncomeService {
      * @return a collection of all income entries.
      */
     List<Income> listAll();
+
+    /**
+     * Return an income source with a given ID.
+     * @param id a unique identifier for a specific income source.
+     * @return a matching income, or null if no matches are found.
+     */
+    Income searchByID(int id);
 }

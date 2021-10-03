@@ -15,20 +15,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class MoneyManagerApplicationTests {
 
     @Autowired
-    IIncomeService incomeService;
+    private IIncomeService incomeService;
+    private Income income;
 
     @Autowired
-    IExpenseService expenseService;
+    private IExpenseService expenseService;
+    private Expense expense;
 
     @Test
     void contextLoads() {
 
     }
-//    Test idea
 
 //    Add income
     @Test
@@ -88,8 +91,8 @@ class MoneyManagerApplicationTests {
             }
         }
     }
-//    Delete income
-//    Delete expense
+//    TODO: Delete income
+//    TODO: Delete expense
 //    Get Income
     @Test
     void checkReturnIncomeList(){
@@ -100,7 +103,46 @@ class MoneyManagerApplicationTests {
     void checkReturnExpensesList(){
         expenseService.showAll();
     }
-//    Update Income
-//    Update Expense
+
+    @Test
+    void viewIncomeItemDetails(){
+        givenIncomeItemsExist();
+        whenSearchForID25();
+        thenReturnOneIncomeItemWithID25();
+
+    }
+
+    private void givenIncomeItemsExist() {
+    }
+
+    private void whenSearchForID25() {
+        income = incomeService.searchByID(25);
+    }
+
+    private void thenReturnOneIncomeItemWithID25() {
+        String name = income.getSource();
+        assertEquals("Savings Interest", name);
+    }
+
+    @Test
+    void viewExpenseItemDetails(){
+        givenExpenseItemsExist();
+        whenSearchForID1();
+        thenReturnOneExpenseItemWithID1();
+    }
+
+    private void givenExpenseItemsExist() {
+    }
+
+    private void whenSearchForID1() {
+        expense = expenseService.searchByID(1);
+    }
+
+    private void thenReturnOneExpenseItemWithID1() {
+        String name = expense.getName();
+        assertEquals("Rent", name);
+    }
+//    TODO: Update Income
+//    TODO: Update Expense
 
 }

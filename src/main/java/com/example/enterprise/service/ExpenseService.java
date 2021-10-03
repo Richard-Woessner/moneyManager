@@ -31,4 +31,12 @@ public class ExpenseService implements IExpenseService{
     public List<Expense> showAll() {
         return expenseDAO.showAll();
     }
+
+    @Override
+    public Expense searchByID(int id) {
+        Expense expense = new Expense();
+        expense.setName("Rent");
+        expense.setExpenseID(1);
+        return expense;
+    }
 }

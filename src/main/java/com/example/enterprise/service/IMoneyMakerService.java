@@ -2,7 +2,7 @@ package com.example.enterprise.service;
 
 import com.example.enterprise.dto.Income;
 
-public interface MoneyMakerService {
+public interface IMoneyMakerService {
 
     Income fetchById(int id);
 }

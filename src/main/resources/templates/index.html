@@ -13,21 +13,7 @@
     </head>
     <body class="sb-nav-fixed">
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <h1 class="px-3 h4">Money&nbsp;Manager</h1>
-                    <div class="sb-sidenav-menu">
-
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+            <div th:replace="fragments/sidenav :: navbar"></div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -38,17 +24,43 @@
                                     <div class="row px-3"><button class="btn btn-outline-light" type="button" id="incomeBtn">Add</button></div>
                                 </div>
 
-                                <form class="card input-group mb-3" id="incomeColumn">
+                                <form class="card input-group mb-3" id="incomeColumn" th:action="@{/addIncomeEntry}" th:object="${income}" method="GET">
                                     <div class="card-body">
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text">$</span>
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                            <span class="input-group-text">.00</span>
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Income Source</span>
+                                            </div>
+                                            <input class="form-control" id="source" th:field="*{source}" type="text" placeholder="E.g., Employment, Retirement, etc." aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">ID</span>
+                                            </div>
+                                            <input class="form-control" id="incomeID" th:field="*{incomeID}" type="number" placeholder="Please enter a number" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Amount $</span>
+                                            </div>
+                                            <input class="form-control" id="amount" th:field="*{amount}" type="text" placeholder="0.00" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Frequency in Days</span>
+                                            </div>
+                                            <input class="form-control" id="frequency" th:field="*{frequency}" type="number" placeholder="E.g., 7, 14, 30, etc." aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Next Deposit Date</span>
+                                            </div>
+                                            <input class="form-control" id="depositDate" th:field="*{depositDate}" type="date" aria-describedby="inputGroup-sizing-default">
                                         </div>
 
                                         <div class="input-group mb-3">
-                                            <textarea class="md-textarea form-control" rows="2" placeholder="Description"></textarea>
+                                            <textarea class="md-textarea form-control" rows="2" id="note" th:field="*{note}" placeholder="Description"></textarea>
                                         </div>
+                                        <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="0" id="incomeSubmit">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -103,18 +115,7 @@
 
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Money Manager 2021</div>
-                            <div>
-                                <a href="/privacy">Privacy Policy</a>
-                                &middot;
-                                <a href="/terms">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                <footer th:replace="fragments/footer :: footer"></footer>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -4,14 +4,10 @@ import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
 import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
-import com.example.enterprise.service.IncomeService;
-import com.example.enterprise.service.MoneyMakerServiceStub;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,9 +29,9 @@ class MoneyManagerApplicationTests {
 
     }
 
-//    Add income
+    //    Add income
     @Test
-    void addAndSaveANewIncome(){
+    void addAndSaveANewIncome() {
         String incomeSource = "Employment";
         int id = 0;
         double incomeAmount = 500.00;
@@ -54,18 +50,19 @@ class MoneyManagerApplicationTests {
 
         incomeService.save(income);
 
-        List<Income> incomeEntries =incomeService.listAllIncomes();
+        List<Income> incomeEntries = incomeService.listAllIncomes();
         boolean checkNewIncome = false;
-        for(Income i : incomeEntries){
-            if(i.getSource().equals(incomeSource) && i.getIncomeID() == id){
+        for (Income i : incomeEntries) {
+            if (i.getSource().equals(incomeSource) && i.getIncomeID() == id) {
                 checkNewIncome = true;
                 break;
             }
         }
     }
-//    Add expense
+
+    //    Add expense
     @Test
-    void addAndSaveANewExpense(){
+    void addAndSaveANewExpense() {
         String expenseName = "Phone Bill";
         int id = 0;
         double cost = 120.00;
@@ -84,28 +81,30 @@ class MoneyManagerApplicationTests {
 
         List<Expense> expenseEntries = expenseService.showAllExpenses();
         boolean checkNewExpense = false;
-        for(Expense e : expenseEntries){
-            if(e.getName().equals(expenseName) && e.getAmount() == cost){
+        for (Expense e : expenseEntries) {
+            if (e.getName().equals(expenseName) && e.getAmount() == cost) {
                 checkNewExpense = true;
                 break;
             }
         }
     }
-//    TODO: Delete income
+
+    //    TODO: Delete income
 //    TODO: Delete expense
 //    Get Income
     @Test
-    void checkReturnIncomeList(){
+    void checkReturnIncomeList() {
         incomeService.listAllIncomes();
     }
-//    Get Expense
+
+    //    Get Expense
     @Test
-    void checkReturnExpensesList(){
+    void checkReturnExpensesList() {
         expenseService.showAllExpenses();
     }
 
     @Test
-    void viewIncomeItemDetails(){
+    void viewIncomeItemDetails() {
         givenIncomeItemsExist();
         whenSearchForID25();
         thenReturnOneIncomeItemWithID25();
@@ -125,7 +124,7 @@ class MoneyManagerApplicationTests {
     }
 
     @Test
-    void viewExpenseItemDetails(){
+    void viewExpenseItemDetails() {
         givenExpenseItemsExist();
         whenSearchForID1();
         thenReturnOneExpenseItemWithID1();

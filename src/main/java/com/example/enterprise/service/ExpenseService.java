@@ -29,7 +29,11 @@ public class ExpenseService implements IExpenseService{
 
     @Override
     public void save(Expense expense) {
-        expenseDAO.save(expense);
+        try {
+            expenseDAO.save(expense);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

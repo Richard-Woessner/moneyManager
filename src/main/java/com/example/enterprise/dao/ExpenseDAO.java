@@ -12,7 +12,7 @@ public class ExpenseDAO implements IExpenseDAO{
     List<Expense> allExpenses = new ArrayList<>();
 
     @Override
-    public void save(Expense expense){
+    public void save(Expense expense) throws Exception {
         allExpenses.add(expense);
     }
 

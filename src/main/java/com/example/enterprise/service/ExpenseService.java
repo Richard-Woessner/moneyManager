@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * The ExpenseService class provides necessary logic for operation methods related to Expense
+ * such as save, list, and search. It implements all the methods from Expense service interface.
+ *
+ */
 @Service
 public class ExpenseService implements IExpenseService{
 

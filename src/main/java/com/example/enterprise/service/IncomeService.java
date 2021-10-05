@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * The IncomeService class provides necessary logic for operation methods related to Income
+ * such as save, list, and search. It implements all the methods from Income service interface.
+ *
+ */
 @Service
 public class IncomeService implements IIncomeService{
 

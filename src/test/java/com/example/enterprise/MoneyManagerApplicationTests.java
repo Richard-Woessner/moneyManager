@@ -54,7 +54,7 @@ class MoneyManagerApplicationTests {
 
         incomeService.save(income);
 
-        List<Income> incomeEntries =incomeService.listAll();
+        List<Income> incomeEntries =incomeService.listAllIncomes();
         boolean checkNewIncome = false;
         for(Income i : incomeEntries){
             if(i.getSource().equals(incomeSource) && i.getIncomeID() == id){
@@ -96,7 +96,7 @@ class MoneyManagerApplicationTests {
 //    Get Income
     @Test
     void checkReturnIncomeList(){
-        incomeService.listAll();
+        incomeService.listAllIncomes();
     }
 //    Get Expense
     @Test

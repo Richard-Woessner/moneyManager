@@ -19,7 +19,7 @@ public interface IIncomeService {
      * Return all saved income sources.
      * @return a collection of all income entries.
      */
-    List<Income> listAll();
+    List<Income> listAllIncomes();
 
     /**
      * Return an income source with a given ID.

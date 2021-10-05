@@ -31,7 +31,7 @@ public class IncomeService implements IIncomeService{
     }
 
     @Override
-    public List<Income> listAll() {
+    public List<Income> listAllIncomes() {
         return incomeSourceDAO.listAll();
     }
 

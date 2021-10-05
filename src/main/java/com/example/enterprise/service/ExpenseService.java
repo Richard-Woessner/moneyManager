@@ -28,7 +28,7 @@ public class ExpenseService implements IExpenseService{
     }
 
     @Override
-    public List<Expense> showAll() {
+    public List<Expense> showAllExpenses() {
         return expenseDAO.showAll();
     }
 

@@ -11,11 +11,20 @@ public class ExpenseDAO implements IExpenseDAO{
 
     List<Expense> allExpenses = new ArrayList<>();
 
+    /**
+     * Save an expense to the allExpenses arraylist
+     * @param expense an expense given by user
+     * @throws Exception
+     */
     @Override
-    public void save(Expense expense){
+    public void save(Expense expense) throws Exception {
         allExpenses.add(expense);
     }
 
+    /**
+     * List all entered expenses in allExpenses arraylist
+     * @return allExpense arraylist
+     */
     @Override
     public List<Expense> showAll(){
         return allExpenses;

@@ -2245,9 +2245,9 @@ progress {
   pointer-events: none;
   border-color: inherit;
   border-style: solid;
-  border-width: 0;
+  border-width: 1;
   border-inline-end-width: 1px;
-  border-radius: 0;
+  border-radius: 1;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

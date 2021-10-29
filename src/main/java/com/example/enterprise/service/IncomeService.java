@@ -3,6 +3,7 @@ package com.example.enterprise.service;
 import com.example.enterprise.dao.IIncomeDAO;
 import com.example.enterprise.dto.Income;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 public class IncomeService implements IIncomeService{
 
+    @Qualifier("incomeSQLDAO")
     @Autowired
     private IIncomeDAO incomeSourceDAO;
 
@@ -22,12 +24,8 @@ public class IncomeService implements IIncomeService{
     }
 
     @Override
-    public void save(Income income) {
-        try {
-            incomeSourceDAO.save(income);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public Income save(Income income) throws Exception {
+        return incomeSourceDAO.save(income);
     }
 
     @Override

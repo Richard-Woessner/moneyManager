@@ -12,8 +12,9 @@ public class IncomeDAO implements IIncomeDAO{
     List<Income> allIncomeSources = new ArrayList<>();
 
     @Override
-    public void save(Income income) throws Exception {
+    public Income save(Income income) throws Exception {
         allIncomeSources.add(income);
+        return income;
     }
 
     @Override

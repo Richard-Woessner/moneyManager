@@ -4,14 +4,10 @@ import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
 import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
-import com.example.enterprise.service.IncomeService;
-import com.example.enterprise.service.MoneyMakerServiceStub;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +31,7 @@ class MoneyManagerApplicationTests {
 
 //    Add income
     @Test
-    void addAndSaveANewIncome(){
+    void addAndSaveANewIncome() throws Exception {
         String incomeSource = "Employment";
         int id = 0;
         double incomeAmount = 500.00;
@@ -49,7 +45,7 @@ class MoneyManagerApplicationTests {
         income.setIncomeID(id);
         income.setAmount(incomeAmount);
         income.setFrequency(incomeFrequency);
-        income.setDepositDate(nextDepositDate);
+        income.setDepositDate(nextDepositDate.toString());
         income.setNote(notes);
 
         incomeService.save(income);

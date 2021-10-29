@@ -8,12 +8,12 @@ import java.util.List;
  * Income Service handles business logic for Income DTOs.
  */
 public interface IIncomeService {
-
     /**
      * Save a new income source
      * @param income the entry to save.
+     * @return
      */
-    void save (Income income);
+    Income save (Income income) throws Exception;
 
     /**
      * Return all saved income sources.

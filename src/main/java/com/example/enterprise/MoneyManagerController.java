@@ -57,13 +57,14 @@ public class MoneyManagerController {
 
     @GetMapping("/income")
     @ResponseBody
-    public Map<String,?> fetchAllIncome() {
-        List<Income> allIncome = incomeService.listAll();
-        Map<String, List> map = new HashMap<String, List>();
-
-
-        System.out.println(map);
-        return map;
+    public List<Income> fetchAllIncome() {
+        List<Income> list = incomeService.listAll();
+        System.out.println(list);
+        return list;
+//        List<Income> allIncome = incomeService.listAll();
+//        Map<String, List> map = new HashMap<String, List>();
+//        System.out.println(allIncome);
+//        return map;
     }
 
     @GetMapping("/income/{id}/")

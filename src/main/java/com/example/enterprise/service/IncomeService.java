@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class IncomeService implements IIncomeService{
 
-    @Qualifier("incomeSQLDAO")
     @Autowired
     private IIncomeDAO incomeSourceDAO;
 

@@ -3,12 +3,14 @@ package com.example.enterprise.dao;
 import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Profile("dev")
 public class ExpenseSQLDAO implements IExpenseDAO{
 
     @Autowired

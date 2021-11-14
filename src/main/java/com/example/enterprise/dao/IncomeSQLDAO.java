@@ -30,4 +30,14 @@ public class IncomeSQLDAO implements IIncomeDAO {
         System.out.println(incomeRepository.toString());
         return incomeArr;
     }
+
+    @Override
+    public Income getIncome(int id) {
+        return incomeRepository.findById(id).get();
+    }
+
+    @Override
+    public void delete(Income income) {
+        incomeRepository.delete(income);
+    }
 }

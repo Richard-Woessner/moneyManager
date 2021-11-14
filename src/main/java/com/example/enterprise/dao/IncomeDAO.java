@@ -23,4 +23,14 @@ public class IncomeDAO implements IIncomeDAO{
     public List<Income> listAll() {
         return allIncomeSources;
     }
+
+    @Override
+    public Income getIncome(int id) {
+        return allIncomeSources.get(id);
+    }
+
+    @Override
+    public void delete(Income income) {
+        allIncomeSources.remove(income);
+    }
 }

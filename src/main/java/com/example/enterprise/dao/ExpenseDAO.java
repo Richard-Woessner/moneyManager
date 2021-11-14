@@ -20,4 +20,14 @@ public class ExpenseDAO implements IExpenseDAO{
     public List<Expense> showAll(){
         return allExpenses;
     }
+
+    @Override
+    public Expense getExpense(int id) {
+        return allExpenses.get(id);
+    }
+
+    @Override
+    public void delete(Expense expense) {
+        allExpenses.remove(expense);
+    }
 }

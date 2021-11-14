@@ -8,5 +8,5 @@ public interface IExpenseDAO {
     void save(Expense expense);
     List<Expense> showAll();
     Expense getExpense(int id);
-    void delete(Expense expense);
+    void delete(int id);
 }

@@ -34,7 +34,7 @@ public class ExpenseSQLDAO implements IExpenseDAO{
     }
 
     @Override
-    public void delete(Expense expense) {
-        expenseRepository.delete(expense);
+    public void delete(int id) {
+        expenseRepository.deleteById(id);
     }
 }

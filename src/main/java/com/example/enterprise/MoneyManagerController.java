@@ -2,6 +2,7 @@ package com.example.enterprise;
 
 import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
+import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -21,6 +22,8 @@ public class MoneyManagerController {
 
     @Autowired
     IIncomeService incomeService;
+    @Autowired
+    IExpenseService expenseService;
 
     /**
      * Handle the / endpoint
@@ -52,6 +55,12 @@ public class MoneyManagerController {
     public String addIncomeEntry(Income newIncomeEntry) throws Exception {
         System.out.println(newIncomeEntry.toString());
         incomeService.save(newIncomeEntry);
+        return "index";
+    }
+    @RequestMapping("/addExpenseEntry")
+    public String addExpenseEntry(Expense newExpenseEntry){
+        System.out.println(newExpenseEntry.toString());
+        expenseService.save(newExpenseEntry);
         return "index";
     }
 

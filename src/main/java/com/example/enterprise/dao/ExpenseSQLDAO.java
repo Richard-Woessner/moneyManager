@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Profile("dev")
+@Profile({"dev", "default"})
 public class ExpenseSQLDAO implements IExpenseDAO{
 
     @Autowired

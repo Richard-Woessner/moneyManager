@@ -1,14 +1,22 @@
 package com.example.enterprise.dto;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotBlank;
 
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public @Data class Income {
-    private String source;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int incomeID;
+
+    private String source;
     private double amount;
     private int frequency;
-    private Date depositDate;
+    private String depositDate;
     private String note;
 }

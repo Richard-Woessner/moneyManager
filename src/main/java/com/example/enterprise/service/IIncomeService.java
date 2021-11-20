@@ -21,6 +21,8 @@ public interface IIncomeService {
      */
     List<Income> listAll();
 
+    double getTotal();
+
     /**
      * Return an income source with a given ID.
      * @param id a unique identifier for a specific income source.

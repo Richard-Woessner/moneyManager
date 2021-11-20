@@ -15,7 +15,7 @@ public @Data class Expense {
     private int expenseID;
     private String name;
     private double amount;
-    private Date dueDate;
+    private String dueDate;
     private String category;
     private String note;
 }

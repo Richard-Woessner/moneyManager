@@ -57,6 +57,43 @@
                                         <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="0" id="incomeSubmit">Submit</button>
                                     </div>
                                 </form>
+
+                                <div th:each="iter : ${incomeList}">
+                                    <!-- do whatever you wan to do here -->
+                                    <div class="card input-group mb-3">
+                                        <div class="card-body">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Income Source</span>
+                                                </div>
+                                                <input class="form-control" type="text" th:placeholder="${iter.source}" aria-describedby="inputGroup-sizing-default" readonly>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Amount $</span>
+                                                </div>
+                                                <input class="form-control" type="text" th:placeholder="${iter.amount}" aria-describedby="inputGroup-sizing-default" readonly>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Frequency in Days</span>
+                                                </div>
+                                                <input class="form-control"type="number" th:placeholder="${iter.frequency}" aria-describedby="inputGroup-sizing-default" readonly>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Next Deposit Date</span>
+                                                </div>
+                                                <input class="form-control" th:placeholder="${iter.depositDate}" type="text" aria-describedby="inputGroup-sizing-default" readonly>
+                                            </div>
+
+                                            <div class="input-group mb-3">
+                                                <textarea class="md-textarea form-control" rows="2" th:placeholder="${iter.note}"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-sm">
                                 <div class="mb-3">
@@ -65,35 +102,35 @@
                                 </div>
 
 
-                                <form class="card input-group mb-3" id="expenseColumn" th:action="@{/addExpenseEntry}" th:object="${expense}" method="GET">
+                                <form class="card input-group mb-3" id="expenseColumn" th:action="@{/addExpenseEntry}" th:object="${expense}" method="POST">
                                     <div class="card-body">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Name of Expense</span>
                                             </div>
-                                            <input class="form-control" id="name" th:field="*{name}" type="text" placeholder="E.g., Rent, Phone, etc." aria-describedby="inputGroup-sizing-default">
+                                            <input class="form-control" id="name" field="*{name}" type="text" placeholder="E.g., Rent, Phone, etc." aria-describedby="inputGroup-sizing-default">
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Amount $</span>
                                             </div>
-                                            <input class="form-control" id="expAmount" th:field="*{amount}" type="text" placeholder="0.00" aria-describedby="inputGroup-sizing-default">
+                                            <input class="form-control" id="expAmount" field="*{amount}" type="text" placeholder="0.00" aria-describedby="inputGroup-sizing-default">
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Due Date</span>
                                             </div>
-                                            <input class="form-control" id="dueDate" th:field="*{dueDate}" type="date" aria-describedby="inputGroup-sizing-default">
+                                            <input class="form-control" id="dueDate" field="*{dueDate}" type="date" aria-describedby="inputGroup-sizing-default">
                                         </div>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text" for="category">Category</label>
                                             </div>
-                                            <input class="form-control" id="category" th:field="*{category}" aria-describedby="inputGroup-sizing-default">
+                                            <input class="form-control" id="category" field="*{category}" aria-describedby="inputGroup-sizing-default">
                                         </div>
 
                                         <div class="input-group mb-3">
-                                            <textarea class="md-textarea form-control" rows="2" id="notes" th:field="*{note}" placeholder="Description"></textarea>
+                                            <textarea class="md-textarea form-control" rows="2" id="notes" field="*{note}" placeholder="Description"></textarea>
                                         </div>
                                         <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="1" id="expenseSubmit">Submit</button>
                                     </div>

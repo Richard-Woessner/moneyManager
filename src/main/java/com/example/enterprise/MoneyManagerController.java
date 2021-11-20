@@ -32,6 +32,10 @@ public class MoneyManagerController {
         model.addAttribute(expense);
 
 
+        //ADD DATABASE ENTRIES
+        List<Income> incomeList = incomeService.listAll();
+        model.addAttribute(incomeList);
+
 
         return "index";
     }
@@ -47,9 +51,12 @@ public class MoneyManagerController {
     }
 
     @RequestMapping("/addIncomeEntry")
-    public String addIncomeEntry(Income newIncomeEntry) throws Exception {
+    public String addIncomeEntry(Income newIncomeEntry, Model model) throws Exception {
         System.out.println(newIncomeEntry.toString());
         incomeService.save(newIncomeEntry);
+
+        List<Income> incomeList = incomeService.listAll();
+        model.addAttribute(incomeList);
         return "index";
     }
     @RequestMapping("/addExpenseEntry")

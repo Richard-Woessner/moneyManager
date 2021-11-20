@@ -71,16 +71,20 @@ public class MoneyManagerController {
         return "redirect:/";
     }
 
+    @GetMapping("/expense")
+    @ResponseBody
+    public List<Expense> fetchAllExpenses() {
+        List<Expense> list = expenseService.showAll();
+        System.out.println(list);
+        return list;
+    }
+
     @GetMapping("/income")
     @ResponseBody
     public List<Income> fetchAllIncome() {
         List<Income> list = incomeService.listAll();
         System.out.println(list);
         return list;
-//        List<Income> allIncome = incomeService.listAll();
-//        Map<String, List> map = new HashMap<String, List>();
-//        System.out.println(allIncome);
-//        return map;
     }
 
     @GetMapping("/income/{id}/")
@@ -88,12 +92,5 @@ public class MoneyManagerController {
         return new ResponseEntity(HttpStatus.OK);
 
     }
-
-//    @PostMapping(value="/income", consumes = "application/json", produces = "application/json")
-//    public String addIncome(@RequestBody Income income){
-//        String json = new Gson().toJson(incomeService.listAll());
-//        System.out.println(json);
-//        return json;
-//    }
 
 }

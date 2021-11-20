@@ -1,6 +1,7 @@
 package com.example.enterprise.dto;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ public @Data class Income {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int incomeID;
+
     private String source;
     private double amount;
     private int frequency;

@@ -22,7 +22,15 @@ public interface IExpenseService {
      */
     List<Expense> showAll();
 
+
+    /**
+     * @param id expense record ID
+     * @return expense record
+     */
     Expense searchByID(int id);
 
+    /**
+     * @return the total of all income amounts
+     */
     double getTotal();
 }

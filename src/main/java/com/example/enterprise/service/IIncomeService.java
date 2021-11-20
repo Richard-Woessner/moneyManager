@@ -21,6 +21,10 @@ public interface IIncomeService {
      */
     List<Income> listAll();
 
+
+    /**
+     * @return the total of all income amounts
+     */
     double getTotal();
 
     /**
@@ -29,4 +33,5 @@ public interface IIncomeService {
      * @return a matching income, or null if no matches are found.
      */
     Income searchByID(int id);
+
 }

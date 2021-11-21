@@ -96,7 +96,7 @@
 <h4>Scenario</h4>
 <p>As a User, I want to be able to use the Money Management Application to identify potential savings in my bills.</p>
 <h4>Dependencies</h4>
-<p>Recipes have previously been saved or favorited in the Money Management Application.</p>
+<p>Expenses have previously been saved in the Money Management Application.</p>
 <p><strong>1.1</strong><br
 /><strong>Given</strong> I am viewing the Summary Menu<br
 /><strong>When</strong> I choose Find Savings<br
@@ -110,22 +110,22 @@
    /><strong>MoneyManagerController:</strong> This is a User interface (UI) class.<br
    /><br/>
    <strong>DTO classes:</strong><br 
-   /><strong>User:</strong> The class will hold user name and any possible data required for autehntication. <br 
-   /><strong>Income:</strong> The class will hold any income information data such as source, ammount, and frequency available (yearly, monthly, biweekly,etc.).<br 
+   /><strong>User:</strong> The class will hold user name and any possible data required for authentication. <br 
+   /><strong>Income:</strong> The class will hold any income information data such as source, amount, and frequency available (yearly, monthly, biweekly,etc.).<br 
    /><strong>Bill:</strong> The class will hold the bill information such as source, payment, day due, and the category of the bill. <br
    /><strong>CategoryType:</strong> Enum class to hold possible categories to organize bill types such as housing, electricity, entertainment, etc.).<br
    /><br/>
    <strong>DAO classes:</strong><br 
-   /><strong>IUserDAO/UserDAO:</strong> Will process the user data between the apllication and the database.<br
-   /><strong>IIncomeDAO/IncomeDAO:</strong> Will process the income data between the apllication and the database.<br 
-   /><strong>IBillDAO/BillDAO:</strong> Will process the bill data between the apllication and the database.<br
+   /><strong>IUserDAO/UserDAO:</strong> Will process the user data between the application and the database.<br
+   /><strong>IIncomeDAO/IncomeDAO:</strong> Will process the income data between the application and the database.<br 
+   /><strong>IBillDAO/BillDAO:</strong> Will process the bill data between the application and the database.<br
    /><br/>  
    <strong>Service classes:</strong><br 
    /><strong>ItemServices:</strong> Provides the required behaviors the classes below must implement for the business logic.<br 
    /><strong>IncomeService:</strong> This class will process the income data for any required function.<br
    /><strong>BillService:</strong> This class will process the bill data for any required function.<br
-   /><strong>IncomeServiceStub:</strong> Contains temporaty income data to test the application until the database/dto is implemented.<br
-   /><strong>BillServiceStub:</strong> Contains temporaty bill data to test the application until the database/dto is implemented. </p>
+   /><strong>IncomeServiceStub:</strong> Contains temporary income data to test the application until the database/dto is implemented.<br
+   /><strong>BillServiceStub:</strong> Contains temporary bill data to test the application until the database/dto is implemented. </p>
 <h2 id="json">JSON Schema</h2>
 This is the bill data to be exported to other apps.
 
@@ -188,10 +188,10 @@ User data:
 ```
 <h2 id="roles">Scrum Roles</h2>
 <ul>
-<li>Alainna Nichols - Business Logic</li>
+<li>Alainna Nichols - Business Logic / Developer</li>
 <li>Mamadou Kone - UI Specialist</li>
-<li>Richard Woessner -  Scrum master</li>
-<li>Juan Lopez Rosado - Developer</li>
+<li>Richard Woessner -  Scrum master / Developer</li>
+<li><del>Juan Lopez Rosado</del> - ABSENT MEMBER</li>
 </ul>
 <h2 id="github">Github URL</h2>
 <h3><a href="https://github.com/Richard-Woessner/moneyManager" target="_blank">Money Manager on GitHub</a></h3>

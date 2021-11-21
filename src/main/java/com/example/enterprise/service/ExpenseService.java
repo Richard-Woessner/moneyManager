@@ -51,4 +51,7 @@ public class ExpenseService implements IExpenseService{
         }
         return total;
     }
+
+    @Override
+    public List<Expense> listAll() { return expenseDAO.showAll(); }
 }

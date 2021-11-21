@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Money Manager Application for IT 4045C." />
+        <link type="image/x-icon" href="assets/img/favicon.ico" rel="shortcut icon">
+        <title>All Expenses | Money Manager Application</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet"/>
+        <link href="css/custom-styles.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+    <div id="layoutSidenav">
+        <div th:replace="fragments/sidenav :: navbar"></div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h2 class="text-light text-center display-2">Expenses</h2>
+                    <ul class="list-group list-group-flush" th:each="expense : ${expenseList}">
+                        <li class="list-group-item" th:text="${expense.name}"></li>
+                    </ul>
+                </div>
+            </main>
+            <footer th:replace="fragments/footer :: footer"></footer>
+        </div>
+    </div>
+
+    </body>
+</html>

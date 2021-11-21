@@ -1,12 +1,16 @@
 package com.example.enterprise;
 
+import com.example.enterprise.dao.IIncomeDAO;
 import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
 import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
+import com.example.enterprise.service.IncomeService;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Date;
 import java.util.List;
@@ -16,13 +20,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class MoneyManagerApplicationTests {
 
-    @Autowired
     private IIncomeService incomeService;
-    private Income income;
+    private Income income = new Income();
 
-    @Autowired
     private IExpenseService expenseService;
-    private Expense expense;
+    private Expense expense = new Expense();
+
+    @MockBean
+    private IIncomeDAO incomeDAO;
 
     @Test
     void contextLoads() {
@@ -32,11 +37,12 @@ class MoneyManagerApplicationTests {
 //    Add income
     @Test
     void addAndSaveANewIncome() throws Exception {
+        givenIncomeDataIsAvailable();
         String incomeSource = "Employment";
         int id = 0;
         double incomeAmount = 500.00;
         int incomeFrequency = 7;
-        Date nextDepositDate = new Date("October 08, 2021");
+        String nextDepositDate = "October 08, 2021";
         String notes = "Full time job.";
 
 
@@ -45,21 +51,20 @@ class MoneyManagerApplicationTests {
         income.setIncomeID(id);
         income.setAmount(incomeAmount);
         income.setFrequency(incomeFrequency);
-        income.setDepositDate(nextDepositDate.toString());
+        income.setDepositDate(nextDepositDate);
         income.setNote(notes);
 
-        incomeService.save(income);
+        Income newIncome = incomeService.save(income);
 
-        List<Income> incomeEntries =incomeService.listAll();
-        boolean checkNewIncome = false;
-        for(Income i : incomeEntries){
-            if(i.getSource().equals(incomeSource) && i.getIncomeID() == id){
-                checkNewIncome = true;
-                break;
-            }
-        }
+        assertEquals(income, newIncome);
     }
-//    Add expense
+
+    private void givenIncomeDataIsAvailable() throws Exception {
+        Mockito.when(incomeDAO.save(income)).thenReturn(income);
+        incomeService = new IncomeService(incomeDAO);
+    }
+
+    //    Add expense
     @Test
     void addAndSaveANewExpense(){
         String expenseName = "Phone Bill";

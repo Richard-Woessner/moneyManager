@@ -48,6 +48,19 @@ public class MoneyManagerController {
         return "index";
     }
 
+    @RequestMapping("/all-income")
+    public String allIncome(Model model){
+        List<Income> incomeList = incomeService.listAll();
+        model.addAttribute(incomeList);
+        return "all-income";
+    }
+    @RequestMapping("/all-expenses")
+    public String allExpenses(Model model){
+        List<Expense> expenseList = expenseService.listAll();
+        model.addAttribute(expenseList);
+        return "all-expenses";
+    }
+
     @RequestMapping("/privacy")
     public String privacy(){
         return "privacy";

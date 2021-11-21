@@ -33,4 +33,10 @@ public interface IExpenseService {
      * @return the total of all income amounts
      */
     double getTotal();
+
+    /**
+     * Return all saved expense sources.
+     * @return a collection of all expense entries.
+     */
+    List<Expense> listAll();
 }

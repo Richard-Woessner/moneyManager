@@ -5,11 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="Money Manager Application for IT 4045C." />
+        <link type="image/x-icon" href="assets/img/favicon.ico" rel="shortcut icon">
         <title>Home | Money Manager Application</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="css/custom-styles.css" rel="stylesheet"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <div id="layoutSidenav">
@@ -172,6 +174,7 @@
 
 
                             </div>
+<!--                            TOTAL COLOMN-->
                             <div class="col-sm" id="total">
                                 <div class="input-group mb-3">
                                     <h3 class="text-light display-4">Total</h3>
@@ -197,6 +200,7 @@
                                     </div>
                                     <input class="form-control" type="text" id="netTotal" th:placeholder="*{overallTotal}" readonly aria-describedby="inputGroup-sizing-default">
                                 </div>
+                                <canvas id="financeChart" style="width:100%;max-width:800px"></canvas>
                             </div>
                         </div>
 
@@ -212,5 +216,36 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script>
+            let incomes = [[*{incomeTotal}]];
+            let expenses = [[*{expenseTotal}]];
+            const xValues = ["Income", "Expenses"];
+            const yValues = [incomes, expenses];
+            const barColors = [
+                "#40d184",
+                "#ffb482"
+            ];
+
+            new Chart("financeChart", {
+                type: "doughnut",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: false
+                    },
+                    legend: {
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    }
+                }
+            });
+        </script>
     </body>
 </html>

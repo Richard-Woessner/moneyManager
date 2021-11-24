@@ -88,7 +88,7 @@ public class MoneyManagerController {
     }
 
     @GetMapping("/income/{id}/")
-    public ResponseEntity fetchIncomeById(@PathVariable("id") String id) {
+    public ResponseEntity fetchIncomeById(@PathVariable("id") int id) {
         return new ResponseEntity(HttpStatus.OK);
 
     }

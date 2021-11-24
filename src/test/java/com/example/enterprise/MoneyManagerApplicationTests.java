@@ -29,9 +29,9 @@ class MoneyManagerApplicationTests {
 
     }
 
-//    Add income
+    //    Add income
     @Test
-    void addAndSaveANewIncome() throws Exception {
+    void addAndSaveANewIncome() {
         String incomeSource = "Employment";
         int id = 0;
         double incomeAmount = 500.00;
@@ -45,23 +45,24 @@ class MoneyManagerApplicationTests {
         income.setIncomeID(id);
         income.setAmount(incomeAmount);
         income.setFrequency(incomeFrequency);
-        income.setDepositDate(nextDepositDate.toString());
+        income.setDepositDate(nextDepositDate);
         income.setNote(notes);
 
         incomeService.save(income);
 
-        List<Income> incomeEntries =incomeService.listAll();
+        List<Income> incomeEntries = incomeService.listAllIncomes();
         boolean checkNewIncome = false;
-        for(Income i : incomeEntries){
-            if(i.getSource().equals(incomeSource) && i.getIncomeID() == id){
+        for (Income i : incomeEntries) {
+            if (i.getSource().equals(incomeSource) && i.getIncomeID() == id) {
                 checkNewIncome = true;
                 break;
             }
         }
     }
-//    Add expense
+
+    //    Add expense
     @Test
-    void addAndSaveANewExpense(){
+    void addAndSaveANewExpense() {
         String expenseName = "Phone Bill";
         int id = 0;
         double cost = 120.00;
@@ -78,30 +79,32 @@ class MoneyManagerApplicationTests {
 
         expenseService.save(newExpense);
 
-        List<Expense> expenseEntries = expenseService.showAll();
+        List<Expense> expenseEntries = expenseService.showAllExpenses();
         boolean checkNewExpense = false;
-        for(Expense e : expenseEntries){
-            if(e.getName().equals(expenseName) && e.getAmount() == cost){
+        for (Expense e : expenseEntries) {
+            if (e.getName().equals(expenseName) && e.getAmount() == cost) {
                 checkNewExpense = true;
                 break;
             }
         }
     }
-//    TODO: Delete income
+
+    //    TODO: Delete income
 //    TODO: Delete expense
 //    Get Income
     @Test
-    void checkReturnIncomeList(){
-        incomeService.listAll();
+    void checkReturnIncomeList() {
+        incomeService.listAllIncomes();
     }
-//    Get Expense
+
+    //    Get Expense
     @Test
-    void checkReturnExpensesList(){
-        expenseService.showAll();
+    void checkReturnExpensesList() {
+        expenseService.showAllExpenses();
     }
 
     @Test
-    void viewIncomeItemDetails(){
+    void viewIncomeItemDetails() {
         givenIncomeItemsExist();
         whenSearchForID25();
         thenReturnOneIncomeItemWithID25();
@@ -121,7 +124,7 @@ class MoneyManagerApplicationTests {
     }
 
     @Test
-    void viewExpenseItemDetails(){
+    void viewExpenseItemDetails() {
         givenExpenseItemsExist();
         whenSearchForID1();
         thenReturnOneExpenseItemWithID1();

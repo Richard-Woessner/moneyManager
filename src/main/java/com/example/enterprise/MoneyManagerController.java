@@ -32,9 +32,9 @@ public class MoneyManagerController {
         model.addAttribute(expense);
 
         //ADD DATABASE ENTRIES
-        List<Income> incomeList = incomeService.listAll();
+        List<Income> incomeList = incomeService.listAllIncomes();
         model.addAttribute(incomeList);
-        List<Expense> expenseList = expenseService.showAll();
+        List<Expense> expenseList = expenseService.showAllExpenses();
         model.addAttribute(expenseList);
 
         //Get totals
@@ -50,7 +50,7 @@ public class MoneyManagerController {
 
     @RequestMapping("/all-income")
     public String allIncome(Model model){
-        List<Income> incomeList = incomeService.listAll();
+        List<Income> incomeList = incomeService.listAllIncomes();
         model.addAttribute(incomeList);
         return "all-income";
     }
@@ -87,7 +87,7 @@ public class MoneyManagerController {
     @GetMapping("/expense")
     @ResponseBody
     public List<Expense> fetchAllExpenses() {
-        List<Expense> list = expenseService.showAll();
+        List<Expense> list = expenseService.showAllExpenses();
         System.out.println(list);
         return list;
     }
@@ -95,7 +95,7 @@ public class MoneyManagerController {
     @GetMapping("/income")
     @ResponseBody
     public List<Income> fetchAllIncome() {
-        List<Income> list = incomeService.listAll();
+        List<Income> list = incomeService.listAllIncomes();
         System.out.println(list);
         return list;
     }

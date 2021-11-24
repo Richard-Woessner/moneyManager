@@ -83,7 +83,7 @@ class MoneyManagerApplicationTests {
 
         expenseService.save(newExpense);
 
-        List<Expense> expenseEntries = expenseService.showAll();
+        List<Expense> expenseEntries = expenseService.showAllExpenses();
         boolean checkNewExpense = false;
         for(Expense e : expenseEntries){
             if(e.getName().equals(expenseName) && e.getAmount() == cost){
@@ -97,12 +97,12 @@ class MoneyManagerApplicationTests {
 //    Get Income
     @Test
     void checkReturnIncomeList(){
-        incomeService.listAll();
+        incomeService.listAllIncomes();
     }
 //    Get Expense
     @Test
     void checkReturnExpensesList(){
-        expenseService.showAll();
+        expenseService.showAllExpenses();
     }
 
     @Test

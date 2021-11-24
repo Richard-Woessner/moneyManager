@@ -49,4 +49,9 @@ public class IncomeService implements IIncomeService{
         return income;
     }
 
+    @Override
+    public void deleteByID(int id) {
+        incomeSourceDAO.delete(id);
+    }
+
 }

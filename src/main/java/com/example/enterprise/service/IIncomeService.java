@@ -34,4 +34,6 @@ public interface IIncomeService {
      */
     Income searchByID(int id);
 
+    void deleteByID(int id);
+
 }

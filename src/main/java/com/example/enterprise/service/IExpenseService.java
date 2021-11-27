@@ -1,7 +1,6 @@
 package com.example.enterprise.service;
 
 import com.example.enterprise.dto.Expense;
-import com.example.enterprise.dto.Income;
 
 import java.util.List;
 
@@ -39,4 +38,6 @@ public interface IExpenseService {
      * @return a collection of all expense entries.
      */
     List<Expense> listAll();
+
+    Expense updateExpense(Expense expense);
 }

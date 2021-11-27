@@ -30,6 +30,11 @@ public class IncomeDAO implements IIncomeDAO{
     }
 
     @Override
+    public Income updateIncome(Income income) {
+        return allIncomeSources.set(income.getIncomeID(), income);
+    }
+
+    @Override
     public void delete(int id) {
         allIncomeSources.remove(id);
     }

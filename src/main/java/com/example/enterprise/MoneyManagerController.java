@@ -77,10 +77,21 @@ public class MoneyManagerController {
         incomeService.save(newIncomeEntry);
         return "redirect:/";
     }
+    @RequestMapping("/updateIncomeEntry")
+    public String updateIncomeEntry(Income income){
+        incomeService.updateIncome(income);
+        return "redirect:/";
+    }
     @RequestMapping("/addExpenseEntry")
     public String addExpenseEntry(Expense newExpenseEntry){
         System.out.println(newExpenseEntry.toString());
         expenseService.save(newExpenseEntry);
+        return "redirect:/";
+    }
+    @RequestMapping("/updateExpenseEntry")
+    public String updateExpenseEntry(Expense expense){
+        expenseService.updateExpense(expense);
+        System.out.println(expenseService.searchByID(expense.getExpenseID()));
         return "redirect:/";
     }
 
@@ -106,21 +117,24 @@ public class MoneyManagerController {
 
     }
 
-    @RequestMapping("/edit")@ResponseBody
+    @RequestMapping("/edit")
     public String editById(Model model,
                            @RequestParam(value="id") int id,
                            @RequestParam(value="type") String valueType) {
-        System.out.println(valueType);
+
 
         if(valueType.equals("income")){
+
             Income income = incomeService.searchByID(id);
+            System.out.println(income.toString());
             model.addAttribute(income);
-            return income.toString();
+            return "edit";
         }
         else if(valueType.equals("expense")){
             Expense expense = expenseService.searchByID(id);
+            System.out.println(expense.toString());
             model.addAttribute(expense);
-            return expense.toString();
+            return "edit";
         }
         else{
             return "redirect:/";

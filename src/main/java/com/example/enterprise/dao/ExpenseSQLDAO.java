@@ -35,6 +35,13 @@ public class ExpenseSQLDAO implements IExpenseDAO{
         return expenseRepository.findById(id).get();
     }
 
+
+    @Override
+    public Expense updateExpense(Expense expense) {
+        expenseRepository.save(expense);
+        return expense;
+    }
+
     @Override
     public void delete(int id) {
         expenseRepository.deleteById(id);

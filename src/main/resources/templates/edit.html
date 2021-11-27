@@ -20,7 +20,79 @@
         <main>
             <div class="container-fluid px-4">
                 <div class="row">
+                    <th:block th:if="${income}" >
+                        <form class="card input-group mb-3" id="incomeColumn" th:action="@{/updateIncomeEntry}" th:object="${income}" method="GET">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Income Source</span>
+                                    </div>
+                                    <input class="form-control" id="source" th:field="*{source}" type="text" placeholder="E.g., Employment, Retirement, etc." aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Amount $</span>
+                                    </div>
+                                    <input class="form-control" id="amount" th:field="*{amount}" type="text" placeholder="0.00" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Frequency in Days</span>
+                                    </div>
+                                    <input class="form-control" id="frequency" th:field="*{frequency}" type="number" placeholder="E.g., 7, 14, 30, etc." aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Next Deposit Date</span>
+                                    </div>
+                                    <input class="form-control" id="depositDate" th:field="*{depositDate}" type="date" aria-describedby="inputGroup-sizing-default">
+                                </div>
 
+                                <div class="input-group mb-3">
+                                    <textarea class="md-textarea form-control" rows="2" id="note" th:field="*{note}" placeholder="Description"></textarea>
+                                </div>
+                                <input type="hidden" th:field="*{incomeID}" th:value="*{incomeID}">
+                                <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="0" id="incomeSubmit">Submit</button>
+                            </div>
+                        </form>
+                    </th:block>
+
+                    <th:block th:if="${expense}">
+                        <form class="card input-group mb-3" id="expenseColumn" th:action="@{/updateExpenseEntry}" th:object="${expense}" method="GET">
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Name of Expense</span>
+                                    </div>
+                                    <input class="form-control" id="name" th:field="*{name}" type="text" placeholder="E.g., Rent, Phone, etc." aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Amount $</span>
+                                    </div>
+                                    <input class="form-control" id="expAmount" th:field="*{amount}" type="text" placeholder="0.00" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Due Date</span>
+                                    </div>
+                                    <input class="form-control" id="dueDate" th:field="*{dueDate}" type="date" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="category">Category</label>
+                                    </div>
+                                    <input class="form-control" id="category" th:field="*{category}" aria-describedby="inputGroup-sizing-default">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <textarea class="md-textarea form-control" rows="2" id="notes" th:field="*{note}" placeholder="Description"></textarea>
+                                </div>
+                                <input type="hidden" th:field="*{expenseID}" th:value="*{expenseID}">
+                                <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="1" id="expenseSubmit">Submit</button>
+                            </div>
+                        </form>
+                    </th:block>
                 </div>
 
             </div>

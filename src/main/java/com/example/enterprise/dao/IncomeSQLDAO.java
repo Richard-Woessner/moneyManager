@@ -37,6 +37,11 @@ public class IncomeSQLDAO implements IIncomeDAO {
     }
 
     @Override
+    public Income updateIncome(Income income) {
+        return incomeRepository.save(income);
+    }
+
+    @Override
     public void delete(int id) {
         incomeRepository.deleteById(id);
     }

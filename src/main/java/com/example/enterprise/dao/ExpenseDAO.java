@@ -28,6 +28,11 @@ public class ExpenseDAO implements IExpenseDAO{
         return allExpenses.get(id);
     }
 
+
+    public Expense updateExpense(Expense expense) {
+        return allExpenses.set(expense.getExpenseID(), expense);
+    }
+
     @Override
     public void delete(int id) {
         allExpenses.remove(id);

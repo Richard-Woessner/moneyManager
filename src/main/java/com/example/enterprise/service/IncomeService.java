@@ -52,4 +52,9 @@ public class IncomeService implements IIncomeService{
         incomeSourceDAO.delete(id);
     }
 
+    @Override
+    public Income updateIncome(Income income) {
+        return incomeSourceDAO.updateIncome(income);
+    }
+
 }

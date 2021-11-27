@@ -60,38 +60,34 @@
                                 </form>
 
                                 <div th:each="iter : ${incomeList}">
-                                    <!-- do whatever you wan to do here -->
-                                    <div class="card input-group mb-3">
-                                        <div class="card-body">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Income Source</span>
-                                                </div>
-                                                <input class="form-control" type="text" th:placeholder="${iter.source}" aria-describedby="inputGroup-sizing-default" readonly>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Amount $</span>
-                                                </div>
-                                                <input class="form-control" type="text" th:placeholder="${iter.amount}" aria-describedby="inputGroup-sizing-default" readonly>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Frequency in Days</span>
-                                                </div>
-                                                <input class="form-control"type="number" th:placeholder="${iter.frequency}" aria-describedby="inputGroup-sizing-default" readonly>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Next Deposit Date</span>
-                                                </div>
-                                                <input class="form-control" th:placeholder="${iter.depositDate}" type="text" aria-describedby="inputGroup-sizing-default" readonly>
-                                            </div>
-
-                                            <div class="input-group mb-3">
-                                                <textarea class="md-textarea form-control" rows="2" th:placeholder="${iter.note}"></textarea>
-                                            </div>
-                                        </div>
+                                    <div class="card mb-3">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Income Source: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.source}"></dd>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Amount$: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.amount}"></dd>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Frequency in Days: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.frequency}"></dd>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Next Deposit Date: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.depositDate}"></dd>
+                                            </li>
+                                            <li class="list-group-item" >
+                                                <dt class="col-sm-4">Description: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.note}"></dd>
+                                            </li>
+                                    </ul>
+                                    <div class="card-footer text-end">
+                                        <a class="btn btn-outline-dark text-uppercase text-end" th:href="@{/edit(id=${iter.incomeID}, type='income')}">
+                                            Edit
+                                        </a>
+                                    </div>
                                     </div>
                                 </div>
 
@@ -138,38 +134,35 @@
 
 
                                 <div th:each="iter : ${expenseList}">
-                                <div class="card input-group mb-3">
-                                    <div class="card-body">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Name of Expense</span>
-                                            </div>
-                                            <input class="form-control" type="text" th:placeholder="*{iter.name}" aria-describedby="inputGroup-sizing-default" readonly>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Amount $</span>
-                                            </div>
-                                            <input class="form-control" type="text" th:placeholder="*{iter.amount}" aria-describedby="inputGroup-sizing-default" readonly>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Due Date</span>
-                                            </div>
-                                            <input class="form-control" th:placeholder="*{iter.dueDate}" type="text" aria-describedby="inputGroup-sizing-default" readonly>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="category">Category</label>
-                                            </div>
-                                            <input class="form-control" th:placeholder="*{iter.category}" aria-describedby="inputGroup-sizing-default" readonly>
-                                        </div>
-
-                                        <div class="input-group mb-3">
-                                            <textarea class="md-textarea form-control" rows="2" th:placeholder="*{iter.note}"></textarea>
+                                    <div class="card mb-3">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Name of Expense: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.name}"></dd>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Amount$: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.amount}"></dd>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Due Date: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.dueDate}"></dd>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <dt class="col-sm-4">Category: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.category}"></dd>
+                                            </li>
+                                            <li class="list-group-item" >
+                                                <dt class="col-sm-4">Description: </dt>
+                                                <dd class="col-sm-8" th:text="${iter.note}"></dd>
+                                            </li>
+                                        </ul>
+                                        <div class="card-footer text-end">
+                                            <a class="btn btn-outline-dark text-uppercase text-end" th:href="@{/edit(id=${iter.expenseID}, type='expense')}">
+                                                Edit
+                                            </a>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
 
 
@@ -217,8 +210,8 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
         <script>
-            let incomes = [[*{incomeTotal}]];
-            let expenses = [[*{expenseTotal}]];
+            //let incomes = [[*{incomeTotal}]];
+            //let expenses = [[*{expenseTotal}]];
             const xValues = ["Income", "Expenses"];
             const yValues = [incomes, expenses];
             const barColors = [

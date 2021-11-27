@@ -106,4 +106,26 @@ public class MoneyManagerController {
 
     }
 
+    @RequestMapping("/edit")@ResponseBody
+    public String editById(Model model,
+                           @RequestParam(value="id") int id,
+                           @RequestParam(value="type") String valueType) {
+        System.out.println(valueType);
+
+        if(valueType.equals("income")){
+            Income income = incomeService.searchByID(id);
+            model.addAttribute(income);
+            return income.toString();
+        }
+        else if(valueType.equals("expense")){
+            Expense expense = expenseService.searchByID(id);
+            model.addAttribute(expense);
+            return expense.toString();
+        }
+        else{
+            return "redirect:/";
+        }
+
+    }
+
 }

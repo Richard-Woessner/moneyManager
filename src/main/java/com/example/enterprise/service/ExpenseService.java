@@ -37,9 +37,7 @@ public class ExpenseService implements IExpenseService{
 
     @Override
     public Expense searchByID(int id) {
-        Expense expense = new Expense();
-        expense.setName("Rent");
-        expense.setExpenseID(1);
+        Expense expense = expenseDAO.getExpense(id);
         return expense;
     }
 

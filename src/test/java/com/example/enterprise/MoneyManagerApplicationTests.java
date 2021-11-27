@@ -1,17 +1,12 @@
 package com.example.enterprise;
 
-import com.example.enterprise.dao.IIncomeDAO;
 import com.example.enterprise.dto.Expense;
 import com.example.enterprise.dto.Income;
 import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
-import com.example.enterprise.service.IncomeService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-
 import java.util.Date;
 import java.util.List;
 
@@ -20,24 +15,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class MoneyManagerApplicationTests {
 
+    @Autowired
     private IIncomeService incomeService;
-    private Income income = new Income();
+    private Income income;
 
+    @Autowired
     private IExpenseService expenseService;
-    private Expense expense = new Expense();
-
-    @MockBean
-    private IIncomeDAO incomeDAO;
+    private Expense expense;
 
     @Test
     void contextLoads() {
 
     }
 
-//    Add income
+    //    Add income
     @Test
     void addAndSaveANewIncome() throws Exception {
-        givenIncomeDataIsAvailable();
         String incomeSource = "Employment";
         int id = 0;
         double incomeAmount = 500.00;
@@ -54,16 +47,17 @@ class MoneyManagerApplicationTests {
         income.setDepositDate(nextDepositDate);
         income.setNote(notes);
 
-        Income newIncome = incomeService.save(income);
+        incomeService.save(income);
 
-        assertEquals(income, newIncome);
+        List<Income> incomeEntries =incomeService.listAll();
+        boolean checkNewIncome = false;
+        for(Income i : incomeEntries){
+            if(i.getSource().equals(incomeSource) && i.getIncomeID() == id){
+                checkNewIncome = true;
+                break;
+            }
+        }
     }
-
-    private void givenIncomeDataIsAvailable() throws Exception {
-        Mockito.when(incomeDAO.save(income)).thenReturn(income);
-        incomeService = new IncomeService(incomeDAO);
-    }
-
     //    Add expense
     @Test
     void addAndSaveANewExpense(){
@@ -92,14 +86,14 @@ class MoneyManagerApplicationTests {
             }
         }
     }
-//    TODO: Delete income
+    //    TODO: Delete income
 //    TODO: Delete expense
 //    Get Income
     @Test
     void checkReturnIncomeList(){
         incomeService.listAll();
     }
-//    Get Expense
+    //    Get Expense
     @Test
     void checkReturnExpensesList(){
         expenseService.showAll();

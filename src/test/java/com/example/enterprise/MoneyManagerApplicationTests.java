@@ -7,6 +7,7 @@ import com.example.enterprise.service.IIncomeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import java.util.Date;
 import java.util.List;
 
@@ -86,9 +87,10 @@ class MoneyManagerApplicationTests {
             }
         }
     }
+
     //    TODO: Delete income
-//    TODO: Delete expense
-//    Get Income
+    //    TODO: Delete expense
+    //    Get Income
     @Test
     void checkReturnIncomeList(){
         incomeService.listAll();
@@ -137,7 +139,7 @@ class MoneyManagerApplicationTests {
         String name = expense.getName();
         assertEquals("Rent", name);
     }
-//    TODO: Update Income
-//    TODO: Update Expense
+    //    TODO: Update Income
+    //    TODO: Update Expense
 
 }

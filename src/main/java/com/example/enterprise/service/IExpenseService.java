@@ -19,7 +19,7 @@ public interface IExpenseService {
      * Return all saved expenses.
      * @return a collection of all expense entries.
      */
-    List<Expense> showAll();
+    List<Expense> showAllExpenses();
 
 
     /**

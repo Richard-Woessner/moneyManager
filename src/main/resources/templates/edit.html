@@ -53,6 +53,7 @@
                                 </div>
                                 <input type="hidden" th:field="*{incomeID}" th:value="*{incomeID}">
                                 <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="0" id="incomeSubmit">Submit</button>
+                                <a class="btn btn-outline-dark text-uppercase" name="deleteBtn" th:href="@{/delete(id=*{incomeID}, type='income')}">Delete</a>
                             </div>
                         </form>
                     </th:block>
@@ -90,6 +91,7 @@
                                 </div>
                                 <input type="hidden" th:field="*{expenseID}" th:value="*{expenseID}">
                                 <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="1" id="expenseSubmit">Submit</button>
+                                <a class="btn btn-outline-dark text-uppercase" name="deleteBtn" th:href="@{/delete(id=*{expenseID}, type='expense')}">Delete</a>
                             </div>
                         </form>
                     </th:block>

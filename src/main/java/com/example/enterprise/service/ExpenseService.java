@@ -57,4 +57,9 @@ public class ExpenseService implements IExpenseService{
         expenseDAO.updateExpense(expense);
         return expense;
     }
+
+    @Override
+    public void deleteByID(int id) {
+        expenseDAO.delete(id);
+    }
 }

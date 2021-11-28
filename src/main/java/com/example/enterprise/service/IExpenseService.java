@@ -40,4 +40,6 @@ public interface IExpenseService {
     List<Expense> listAll();
 
     Expense updateExpense(Expense expense);
+
+    void deleteByID(int id);
 }

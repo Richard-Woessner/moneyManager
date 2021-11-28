@@ -139,7 +139,24 @@ public class MoneyManagerController {
         else{
             return "redirect:/";
         }
+    }
 
+    @RequestMapping("/delete")
+    public String deleteById(Model model,
+                           @RequestParam(value="id") int id,
+                           @RequestParam(value="type") String valueType) {
+
+        if(valueType.equals("income")){
+            incomeService.deleteByID(id);
+            return "redirect:/";
+        }
+        else if(valueType.equals("expense")){
+            expenseService.deleteByID(id);
+            return "redirect:/";
+        }
+        else{
+            return "redirect:/";
+        }
     }
 
 }

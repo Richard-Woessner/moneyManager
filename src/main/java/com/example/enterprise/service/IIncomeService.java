@@ -37,4 +37,6 @@ public interface IIncomeService {
     void deleteByID(int id);
 
     Income updateIncome(Income income);
+
+    public double calcIncAverage(Income income);
 }

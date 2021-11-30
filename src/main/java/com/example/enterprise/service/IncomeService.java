@@ -4,6 +4,8 @@ import com.example.enterprise.dao.IIncomeDAO;
 import com.example.enterprise.dto.Income;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class IncomeService implements IIncomeService{
     }
 
     @Override
+    @Cacheable("incomeItems")
     public List<Income> listAll() {
         return incomeSourceDAO.listAll();
     }
@@ -42,12 +45,14 @@ public class IncomeService implements IIncomeService{
     }
 
     @Override
+    @Cacheable(value="income", key = "#id")
     public Income searchByID(int id) {
         Income income = incomeSourceDAO.getIncome(id);
         return income;
     }
 
     @Override
+    @CacheEvict(value="income", key = "#id")
     public void deleteByID(int id) {
         incomeSourceDAO.delete(id);
     }
@@ -56,5 +61,14 @@ public class IncomeService implements IIncomeService{
     public Income updateIncome(Income income) {
         return incomeSourceDAO.updateIncome(income);
     }
+
+    @Override
+    public double calcIncAverage(Income income) {
+        int freq = income.getFrequency();
+        double amt = income.getAmount();
+        double monthlyAverage = (amt / freq) * 30.4167;
+        return monthlyAverage;
+    }
+
 
 }

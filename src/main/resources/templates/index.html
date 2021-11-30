@@ -177,7 +177,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" >Income</span>
                                     </div>
-                                    <input class="form-control" id="incomeTotal" type="text" th:placeholder="*{incomeTotal}" readonly aria-describedby="inputGroup-sizing-default">
+                                    <input class="form-control" id="incomeTotal" type="text" th:placeholder="*{avgInc}" readonly aria-describedby="inputGroup-sizing-default">
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -210,8 +210,8 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
         <script>
-            //let incomes = [[*{incomeTotal}]];
-            //let expenses = [[*{expenseTotal}]];
+            let incomes = [[*{avgInc}]];
+            let expenses = [[*{expenseTotal}]];
             const xValues = ["Income", "Expenses"];
             const yValues = [incomes, expenses];
             const barColors = [

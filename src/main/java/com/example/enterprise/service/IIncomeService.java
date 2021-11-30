@@ -38,5 +38,5 @@ public interface IIncomeService {
 
     Income updateIncome(Income income);
 
-    public double calcIncAverage(Income income);
+    double calcIncAverage(Income income);
 }

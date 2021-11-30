@@ -67,6 +67,7 @@ public class IncomeService implements IIncomeService{
         int freq = income.getFrequency();
         double amt = income.getAmount();
         double monthlyAverage = (amt / freq) * 30.4167;
+        monthlyAverage = Math.round(monthlyAverage*100)/100;
         return monthlyAverage;
     }
 

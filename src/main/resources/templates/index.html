@@ -58,31 +58,11 @@
                                         <button class="btn btn-outline-dark text-uppercase" type="submit" name="submit" value="0" id="incomeSubmit">Submit</button>
                                     </div>
                                 </form>
-
+                                <h3 class="lead text-light"><strong>Current Income Sources:</strong></h3>
                                 <div th:each="iter : ${incomeList}">
                                     <div class="card mb-3">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Income Source: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.source}"></dd>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Amount$: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.amount}"></dd>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Frequency in Days: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.frequency}"></dd>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Next Deposit Date: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.depositDate}"></dd>
-                                            </li>
-                                            <li class="list-group-item" >
-                                                <dt class="col-sm-4">Description: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.note}"></dd>
-                                            </li>
-                                    </ul>
+                                        <h5 class="card-title p-2"  th:text="${iter.source}"></h5>
+                                        <p class="card-text px-3">Pays $<span th:text="${iter.amount}"></span> every <span th:text="${iter.frequency}"></span> days.</p>
                                     <div class="card-footer text-end">
                                         <a class="btn btn-outline-dark text-uppercase text-end" th:href="@{/edit(id=${iter.incomeID}, type='income')}">
                                             Edit
@@ -133,30 +113,12 @@
                                 </form>
 
 
+
+                                <h3 class="lead text-light"><strong>Current Expenses:</strong></h3>
                                 <div th:each="iter : ${expenseList}">
                                     <div class="card mb-3">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Name of Expense: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.name}"></dd>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Amount$: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.amount}"></dd>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Due Date: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.dueDate}"></dd>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <dt class="col-sm-4">Category: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.category}"></dd>
-                                            </li>
-                                            <li class="list-group-item" >
-                                                <dt class="col-sm-4">Description: </dt>
-                                                <dd class="col-sm-8" th:text="${iter.note}"></dd>
-                                            </li>
-                                        </ul>
+                                        <h5 class="card-title p-2"  th:text="${iter.name}"></h5>
+                                        <p class="card-text px-3">Costs $<span th:text="${iter.amount}"></span> per month.</p>
                                         <div class="card-footer text-end">
                                             <a class="btn btn-outline-dark text-uppercase text-end" th:href="@{/edit(id=${iter.expenseID}, type='expense')}">
                                                 Edit
@@ -167,7 +129,7 @@
 
 
                             </div>
-<!--                            TOTAL COLOMN-->
+<!--                            TOTAL COLUMN-->
                             <div class="col-sm" id="total">
                                 <div class="input-group mb-3">
                                     <h3 class="text-light display-4">Total</h3>
@@ -175,21 +137,21 @@
 
                                 <div class="input-group mb-3 mt-5 ">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" >Income</span>
+                                        <span class="input-group-text" >Income: $</span>
                                     </div>
                                     <input class="form-control" id="incomeTotal" type="text" th:placeholder="*{avgInc}" readonly aria-describedby="inputGroup-sizing-default">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" >Expenses</span>
+                                        <span class="input-group-text" >Expenses: $</span>
                                     </div>
                                     <input class="form-control" id="expensesTotal" type="text" th:placeholder="*{expenseTotal}" readonly aria-describedby="inputGroup-sizing-default">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" >Net</span>
+                                        <span class="input-group-text" >Remaining Budget: $</span>
                                     </div>
                                     <input class="form-control" type="text" id="netTotal" th:placeholder="*{overallTotal}" readonly aria-describedby="inputGroup-sizing-default">
                                 </div>

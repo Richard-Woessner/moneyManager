@@ -18,10 +18,22 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h2 class="text-light text-center display-2">Income</h2>
-                    <ul class="list-group list-group-flush" th:each="income : ${incomeList}">
-                        <li class="list-group-item" th:text="${income.source}"></li>
-                    </ul>
+                    <h2 class="text-light text-center display-2">All Income</h2>
+                    <div class="card-columns">
+                    <div th:each="income : ${incomeList}">
+                        <div class="card mb-3">
+                            <h5 class="card-title p-2"  th:text="${income.source}"></h5>
+                            <p class="card-text px-3">Pays $<span th:text="${income.amount}"></span> every <span th:text="${income.frequency}"></span> days.</p>
+                            <p class="card-text px-3">Next deposit date: <span th:text="${income.depositDate}"></span>.</p>
+                            <p class="card-text px-3"><span th:text="${income.note}"></span></p>
+                            <div class="card-footer text-end">
+                                <a class="btn btn-outline-dark text-uppercase text-end" th:href="@{/edit(id=${income.incomeID}, type='income')}">
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </main>
             <footer th:replace="fragments/footer :: footer"></footer>

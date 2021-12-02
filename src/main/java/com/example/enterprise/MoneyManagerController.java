@@ -47,8 +47,8 @@ public class MoneyManagerController {
         double expenseTotal = expenseService.getTotal();
         model.addAttribute("incomeTotal",incomeTotal);
         model.addAttribute("expenseTotal",expenseTotal);
-        model.addAttribute("overallTotal",(incomeTotal - expenseTotal));
         model.addAttribute("avgInc", avgInc);
+        model.addAttribute("overallTotal",(avgInc - expenseTotal));
 
 
         return "index";
@@ -58,6 +58,13 @@ public class MoneyManagerController {
     public String allIncome(Model model){
         List<Income> incomeList = incomeService.listAll();
         model.addAttribute(incomeList);
+        double avgInc = 0.0;
+
+        for (int i = 0; i < incomeList.size(); i++) {
+            avgInc += incomeService.calcIncAverage(incomeList.get(i));
+        }
+        double incomeTotal = incomeService.getTotal();
+        model.addAttribute("avgInc", avgInc);
         return "all-income";
     }
     @RequestMapping("/all-expenses")

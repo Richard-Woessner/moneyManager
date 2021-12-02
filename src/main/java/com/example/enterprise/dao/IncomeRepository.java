@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 
 @Profile("!test")
-public interface IncomeRepository extends CrudRepository<Income, Integer>, JpaSpecificationExecutor<Income> {
+public interface IncomeRepository extends CrudRepository<Income, Integer> {
 
 
 }

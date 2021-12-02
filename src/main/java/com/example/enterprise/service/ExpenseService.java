@@ -5,6 +5,8 @@ import com.example.enterprise.dao.IExpenseDAO;
 import com.example.enterprise.dto.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class ExpenseService implements IExpenseService{
     }
 
     @Override
+    @Cacheable("expenses")
     public void save(Expense expense) {
         expenseDAO.save(expense);
     }
@@ -35,6 +38,7 @@ public class ExpenseService implements IExpenseService{
     }
 
     @Override
+    @Cacheable(value="expense", key = "#id")
     public Expense searchByID(int id) {
         Expense expense = expenseDAO.getExpense(id);
         return expense;
@@ -59,6 +63,7 @@ public class ExpenseService implements IExpenseService{
     }
 
     @Override
+    @CacheEvict(value="expense", key = "#id")
     public void deleteByID(int id) {
         expenseDAO.delete(id);
     }

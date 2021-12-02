@@ -25,12 +25,12 @@ public class IncomeService implements IIncomeService{
     }
 
     @Override
+    @Cacheable("incomeItems")
     public Income save(Income income) throws Exception {
         return incomeSourceDAO.save(income);
     }
 
     @Override
-    @Cacheable("incomeItems")
     public List<Income> listAll() {
         return incomeSourceDAO.listAll();
     }

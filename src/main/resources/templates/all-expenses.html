@@ -18,10 +18,20 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h2 class="text-light text-center display-2">Expenses</h2>
-                    <ul class="list-group list-group-flush" th:each="expense : ${expenseList}">
-                        <li class="list-group-item" th:text="${expense.name}"></li>
-                    </ul>
+                    <h2 class="text-light text-center display-2">All Expenses</h2>
+                    <div th:each="expense : ${expenseList}">
+                        <div class="card mb-3">
+                            <h5 class="card-title p-2"  th:text="${expense.name}"></h5>
+                            <p class="card-text px-3">Costs $<span th:text="${expense.amount}"></span> per month.</p>
+                            <p class="card-text px-3">Category: <span th:text="${expense.category}"></span>.</p>
+                            <p class="card-text px-3"  th:text="${expense.note}"></p>
+                            <div class="card-footer text-end">
+                                <a class="btn btn-outline-dark text-uppercase text-end" th:href="@{/edit(id=${expense.expenseID}, type='expense')}">
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
             <footer th:replace="fragments/footer :: footer"></footer>

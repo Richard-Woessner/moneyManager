@@ -5,8 +5,6 @@ import com.example.enterprise.dto.Income;
 import com.example.enterprise.service.IExpenseService;
 import com.example.enterprise.service.IIncomeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +52,10 @@ public class MoneyManagerController {
         return "index";
     }
 
+
+    /**
+     * Directs to all-income page with income records from the DB
+     */
     @RequestMapping("/all-income")
     public String allIncome(Model model){
         List<Income> incomeList = incomeService.listAll();
@@ -67,6 +69,10 @@ public class MoneyManagerController {
         model.addAttribute("avgInc", avgInc);
         return "all-income";
     }
+
+    /**
+     * Directs to all-expenses page with expense records from the DB
+     */
     @RequestMapping("/all-expenses")
     public String allExpenses(Model model){
         List<Expense> expenseList = expenseService.listAll();
@@ -74,33 +80,64 @@ public class MoneyManagerController {
         return "all-expenses";
     }
 
+
+    /**
+     * Directs user to privacy page
+     */
     @RequestMapping("/privacy")
     public String privacy(){
         return "privacy";
     }
 
+
+    /**
+     * Directs user to terms page
+     */
     @RequestMapping("/terms")
     public String terms(){
         return "terms";
     }
 
+
+
+
+
+    /**
+     * Takes user defined income object from the index and inserts it into the DB
+     * Redirects to the / endpoint
+     */
     @RequestMapping("/addIncomeEntry")
     public String addIncomeEntry(Income newIncomeEntry, Model model) throws Exception {
         System.out.println(newIncomeEntry.toString());
         incomeService.save(newIncomeEntry);
         return "redirect:/";
     }
-    @RequestMapping("/updateIncomeEntry")
-    public String updateIncomeEntry(Income income){
-        incomeService.updateIncome(income);
-        return "redirect:/";
-    }
+    /**
+     * Takes user defined expense object from the index and inserts it into the DB
+     * Redirects to the / endpoint
+     */
     @RequestMapping("/addExpenseEntry")
     public String addExpenseEntry(Expense newExpenseEntry){
         System.out.println(newExpenseEntry.toString());
         expenseService.save(newExpenseEntry);
         return "redirect:/";
     }
+
+
+
+
+    /**
+     * Takes altered Income object from edit.html, and updates the Income record in the DB
+     */
+    @RequestMapping("/updateIncomeEntry")
+    public String updateIncomeEntry(Income income){
+        incomeService.updateIncome(income);
+        return "redirect:/";
+    }
+
+    /**
+     * Takes altered Expense object from edit.html, and updates the Expense record in the DB
+     */
     @RequestMapping("/updateExpenseEntry")
     public String updateExpenseEntry(Expense expense){
         expenseService.updateExpense(expense);
@@ -108,6 +145,11 @@ public class MoneyManagerController {
         return "redirect:/";
     }
 
+
+
+    /**
+     * Returns JSON file of all Expense Records from DB
+     */
     @GetMapping("/expense")
     @ResponseBody
     public List<Expense> fetchAllExpenses() {
@@ -115,7 +157,9 @@ public class MoneyManagerController {
         System.out.println(list);
         return list;
     }
-
+    /**
+     * Returns JSON file of all Income Records from DB
+     */
     @GetMapping("/income")
     @ResponseBody
     public List<Income> fetchAllIncome() {
@@ -124,12 +168,21 @@ public class MoneyManagerController {
         return list;
     }
 
+    /**
+     * Returns a String of a Income record with the id given by the URL
+     */
     @GetMapping("/income/{id}/")
-    public ResponseEntity fetchIncomeById(@PathVariable("id") String id) {
-        return new ResponseEntity(HttpStatus.OK);
+    @ResponseBody
+    public String fetchIncomeById(@PathVariable("id") int id) {
+
+        return incomeService.searchByID(id).toString();
 
     }
 
+    /**
+     * Takes the id and Object type from index
+     * then returns to the edit page with the object from the db
+     */
     @RequestMapping("/edit")
     public String editById(Model model,
                            @RequestParam(value="id") int id,
@@ -154,6 +207,10 @@ public class MoneyManagerController {
         }
     }
 
+    /**
+     * Takes the id and Object type from the edit page
+     * Deletes the record from the DB with the given id
+     */
     @RequestMapping("/delete")
     public String deleteById(Model model,
                            @RequestParam(value="id") int id,

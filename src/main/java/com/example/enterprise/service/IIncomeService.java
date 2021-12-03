@@ -34,9 +34,22 @@ public interface IIncomeService {
      */
     Income searchByID(int id);
 
+
+    /**
+     * Deletes a single Income Record
+     * @param id Income ID
+     */
     void deleteByID(int id);
 
+    /**
+     * @param income A income Object in the Database
+     * @return Updated Income Object
+     */
     Income updateIncome(Income income);
 
+    /**
+     * @param income Income Object
+     * @return Income's average total for a month
+     */
     double calcIncAverage(Income income);
 }

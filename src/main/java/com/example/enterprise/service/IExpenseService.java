@@ -39,7 +39,16 @@ public interface IExpenseService {
      */
     List<Expense> listAll();
 
+    /**
+     * Updates a Expense record in the DB
+     * @param expense Expense object in DB to update
+     * @return Updated Expense Object
+     */
     Expense updateExpense(Expense expense);
 
+    /**
+     * Deletes Expense object from DB
+     * @param id Expense ID
+     */
     void deleteByID(int id);
 }

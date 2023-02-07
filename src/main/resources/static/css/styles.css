@@ -104,7 +104,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 h1, .h1 {
@@ -152,7 +152,7 @@ h6, .h6 {
 }
 
 p {
-  margin-top: 0;
+  margin-top: 1;
   margin-bottom: 1rem;
 }
 
@@ -173,7 +173,7 @@ address {
 
 ol,
 ul {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 ol,
@@ -2245,9 +2245,9 @@ progress {
   pointer-events: none;
   border-color: inherit;
   border-style: solid;
-  border-width: 0;
+  border-width: 1;
   border-inline-end-width: 1px;
-  border-radius: 0;
+  border-radius: 1;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -2384,7 +2384,7 @@ textarea.form-control-lg {
 }
 
 .form-control-color {
-  width: 3rem;
+  width: 5rem;
   height: auto;
   padding: 0.375rem;
 }
